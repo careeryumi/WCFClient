@@ -1,0 +1,24 @@
+﻿@model ClientApplication.ServiceReference1.Genre
+
+@{
+    ViewBag.Title = "Genre Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Genre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Genre id</dt>
+        <dd>@Html.DisplayFor(model => model.GenreID)</dd>
+
+        <dt>Genre name</dt>
+        <dd>@Html.DisplayFor(model => model.GenreName)</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GenreID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

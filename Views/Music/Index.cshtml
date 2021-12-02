@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ClientApplication.ServiceReference1.Music>
+
+@{
+    ViewBag.Title = "Music List";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New Music", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Music id</th>
+        <th>title</th>
+        <th>GenreId</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MusicID)</td>
+            <td>@Html.DisplayFor(modelItem => item.MusicName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Genre.GenreName)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MusicID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MusicID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MusicID })
+            </td>
+        </tr>
+    }
+
+</table>

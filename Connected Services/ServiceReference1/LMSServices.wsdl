@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LMSServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ILMSServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LMSServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILMSServices_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_Hello_InputMessage">
+    <wsdl:part name="parameters" element="tns:Hello" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_Hello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HelloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetAllGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGenre" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetAllGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenre" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_DeleteGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGenre" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_DeleteGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_CreateGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGenre" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_CreateGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_EditGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditGenre" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_EditGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditGenreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetAllMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMusic" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetAllMusic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMusicResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMusic" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_GetMusic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMusicResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_DeleteMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMusic" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_DeleteMusic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMusicResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_CreateMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMusic" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_CreateMusic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMusicResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_EditMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMusic" />
+  </wsdl:message>
+  <wsdl:message name="ILMSServices_EditMusic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMusicResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILMSServices">
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/GetMessage" message="tns:ILMSServices_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/GetMessageResponse" message="tns:ILMSServices_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Hello">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/Hello" message="tns:ILMSServices_Hello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/HelloResponse" message="tns:ILMSServices_Hello_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/GetAllGenre" message="tns:ILMSServices_GetAllGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/GetAllGenreResponse" message="tns:ILMSServices_GetAllGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/GetGenre" message="tns:ILMSServices_GetGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/GetGenreResponse" message="tns:ILMSServices_GetGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/DeleteGenre" message="tns:ILMSServices_DeleteGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/DeleteGenreResponse" message="tns:ILMSServices_DeleteGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/CreateGenre" message="tns:ILMSServices_CreateGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/CreateGenreResponse" message="tns:ILMSServices_CreateGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/EditGenre" message="tns:ILMSServices_EditGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/EditGenreResponse" message="tns:ILMSServices_EditGenre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/GetAllMusic" message="tns:ILMSServices_GetAllMusic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/GetAllMusicResponse" message="tns:ILMSServices_GetAllMusic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/GetMusic" message="tns:ILMSServices_GetMusic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/GetMusicResponse" message="tns:ILMSServices_GetMusic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/DeleteMusic" message="tns:ILMSServices_DeleteMusic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/DeleteMusicResponse" message="tns:ILMSServices_DeleteMusic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/CreateMusic" message="tns:ILMSServices_CreateMusic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/CreateMusicResponse" message="tns:ILMSServices_CreateMusic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILMSServices/EditMusic" message="tns:ILMSServices_EditMusic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILMSServices/EditMusicResponse" message="tns:ILMSServices_EditMusic_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ILMSServices" type="tns:ILMSServices">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILMSServices_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hello">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/Hello" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGenre">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/GetAllGenre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenre">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/GetGenre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGenre">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/DeleteGenre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGenre">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/CreateGenre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditGenre">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/EditGenre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMusic">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/GetAllMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMusic">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/GetMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMusic">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/DeleteMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMusic">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/CreateMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMusic">
+      <soap12:operation soapAction="http://tempuri.org/ILMSServices/EditMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LMSServices">
+    <wsdl:port name="NetTcpBinding_ILMSServices" binding="tns:NetTcpBinding_ILMSServices">
+      <soap12:address location="net.tcp://localhost:8090/LMSServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/LMSServices</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>LAPTOP-TTASJVGM\yumil</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

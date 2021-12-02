@@ -1,0 +1,23 @@
+﻿@model ClientApplication.ServiceReference1.Music
+
+@{
+    ViewBag.Title = "Music Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@Model.MusicID</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Music Id</dt>
+        <dd>@Html.DisplayFor(model => model.MusicID)</dd>
+
+        <dt>Music name</dt>
+        <dd>@Html.DisplayFor(model => model.MusicName)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MusicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

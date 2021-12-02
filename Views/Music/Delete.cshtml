@@ -1,0 +1,31 @@
+﻿@model ClientApplication.ServiceReference1.Music
+
+@{
+    ViewBag.Title = "Delete Music";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Music</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Music Id</dt>
+        <dd>@Html.DisplayFor(model => model.MusicID)</dd>
+
+        <dt>Music Name</dt>
+        <dd>@Html.DisplayFor(model => model.MusicName)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.MusicID)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
